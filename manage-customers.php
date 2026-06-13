@@ -1,18 +1,16 @@
 <?php
 
-// Establish database connection cleanly at the absolute top of the frame script
 
 include('db.php');
 
 
 
-// --- DYNAMIC SYSTEM CONTROL A: UPDATE FARM APPOINTMENTS STATUS (FIXED MATCHING FORM KEYS) ---
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status_action'])) {
 
     $apptId = intval($_POST['appointment_id']);
 
-    $newStatus = trim($_POST['status_decision']); // Catch 'Approved' or 'Rejected' value directly from clicked button
+    $newStatus = trim($_POST['status_decision']); 
 
    
 
@@ -26,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status_action']
 
    
 
-    // Maintain tab persistence layout state flag on reload redirection loops
 
     echo "<script>localStorage.setItem('activeAdminTab', 'visit-schedules'); window.location.href='manage-customers.php';</script>";
 
@@ -36,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status_action']
 
 
 
-// --- DYNAMIC SYSTEM CONTROL B: UPDATE CUSTOMER ORDERS STATUS ---
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_order_live_action'])) {
 

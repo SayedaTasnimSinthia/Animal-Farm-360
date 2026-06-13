@@ -20,7 +20,7 @@ include('db.php');
         </div>
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
             <a href="cart.php">Cart 🛍️</a>
             <button class="login-btn" id="header-user-btn" onclick="window.location.href='login.html'">Login / Sign Up</button>
         </nav>

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (productIndexId !== null) {
         loadDynamicProductDetails(parseInt(productIndexId));
     } else {
-        // Fallback: If page is loaded manually without arguments, display index row 0
+        
         loadDynamicProductDetails(0);
     }
 });
@@ -82,7 +82,6 @@ function triggerAddToCartFromDetails() {
     localStorage.setItem('farmCart', JSON.stringify(cart));
     alert(`"${globallyLoadedActiveProduct.name}" has been added to your shopping cart from details view! 🛍️`);
 }
-
 
 
 document.body.addEventListener("click", (event) => {

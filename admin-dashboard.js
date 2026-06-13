@@ -1,13 +1,7 @@
-
 function routeToPortal(targetPageUrl) {
-  
-    if (targetPageUrl === 'manage-employees.html') {
-        alert("The Manage Employee feature is coming soon! Stay tuned.");
-        console.log("Admin attempted to access employee management: Feature coming soon.");
-    } else {
-        console.log(`Forwarding administrative terminal to: ${targetPageUrl}`);
-        window.location.href = targetPageUrl;
-    }
+    // This will now forward all clicks straight to whatever URL you passed in
+    console.log(`Forwarding administrative terminal to: ${targetPageUrl}`);
+    window.location.href = targetPageUrl;
 }
 
 function logoutAdmin() {

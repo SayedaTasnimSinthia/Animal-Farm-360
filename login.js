@@ -5,9 +5,7 @@ function selectPortal(roleType) {
     } else if (roleType === 'customer') {
         window.location.href = 'customer-login.html';
     } else if (roleType === 'employee') {
-        
-        alert("The Employee Portal feature is coming soon! Stay tuned.");
-        console.log("Employee portal accessed: Feature coming soon.");
+        alert("The Manage Employee feature is coming soon! Stay tuned.");
     }
 }
 
