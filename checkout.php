@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['place_order_action_btn
           </script>";
     exit();
 }  
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['place_order_action_btn
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animal Farm 360 - Checkout</title>
     <link rel="stylesheet" href="checkout.css">
-    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400;900&family=Poppins:wght@500;700;900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400;900&family=Nunito+Sans:wght@400;700;900&family=Oleo+Script+Swash+Caps&family=Poppins:wght@500;700;900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="main-header">
@@ -66,19 +65,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['place_order_action_btn
             <a href="contact.php">Contact Us</a>
             <a href="product.php">Products</a>
             <a href="#" onclick="logoutUser()">Logout</a>
-            <button class="user-profile-btn">🙍‍♂️ <span id="dynamic-username"><?php echo htmlspecialchars($_SESSION['customer_name']); ?></span></button>
+            <button class="user-profile-btn">
+                <span class="user-emoji">🙍‍♂️</span>
+                <span id="dynamic-username"><?php echo htmlspecialchars($_SESSION['customer_name']); ?></span>
+            </button>
         </nav>
     </header>
 
     <div class="dashboard-workspace">
         <aside class="sidebar-navigation">
-            <button class="side-icon" onclick="navigateTo('customer-dashboard.html')">🏠</button>
-            <button class="side-icon" onclick="navigateTo('profile.php')">👤</button>
-            <button class="side-icon" onclick="navigateTo('order-history.php')">📄</button>
-            <button class="side-icon" onclick="navigateTo('cart.php')">🛍️</button>
-            <button class="side-icon" onclick="navigateTo('invoices.php')">🧾</button>
-            <button class="side-icon" onclick="navigateTo('book-visit.php')">📅</button>
-            <button class="side-icon logout-side" onclick="logoutUser()">🚪</button>
+            <button class="side-icon" onclick="navigateTo('customer-dashboard.html')" title="Dashboard">🏠</button>
+            <button class="side-icon" onclick="navigateTo('profile.php')" title="Profile">👤</button>
+            <button class="side-icon" onclick="navigateTo('order-history.php')" title="Orders">📄</button>
+            <button class="side-icon" onclick="navigateTo('cart.php')" title="Cart">🛍️</button>
+            <button class="side-icon" onclick="navigateTo('invoices.php')" title="Invoices">🧾</button>
+            <button class="side-icon" onclick="navigateTo('book-visit.php')" title="Book Visit">📅</button>
+            <button class="side-icon logout-side" onclick="logoutUser()" title="Logout">⏻️</button>
         </aside>
 
         <main class="main-content-panel">
@@ -122,9 +124,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['place_order_action_btn
         </main>
     </div>
 
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-circle big"></div>
+                <span class="logo-text">Animal Farm 360</span>
+            </div>
+            <div class="footer-links">
+                <h4>About</h4>
+                <a href="faq.html">FAQ</a>
+                <a href="about-us.html">About Us</a>
+                <a href="cookie-policy.html">Cookie Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-conditions.html">Terms & Condition</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our Weekly Newsletter & Receive Latest Update</p>
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Enter your mail here...">
+                    <button class="go-btn">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Animal Farm 360 | All Rights Reserved</p>
+        </div>
+    </footer>
+
     <script>
         function navigateTo(url) { window.location.href=url; }
-        function logoutUser() { localStorage.clear(); window.location.href="index.html"; }
+        
+        function logoutUser() { 
+            alert("Logging out from your account safely... Redirecting home.");
+            localStorage.clear(); 
+            window.location.href="logout.php"; 
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("chk-name").value = localStorage.getItem("currentUserName") || "";
             document.getElementById("chk-email").value = localStorage.getItem("currentUserEmail") || "";
@@ -134,10 +170,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['place_order_action_btn
 
             let cart = JSON.parse(localStorage.getItem('farmCart')) || [];
             let sub = 0;
-            cart.forEach(i => sub += (i.price * i.quantity));
+            cart.forEach(i => sub += (Number(i.price) * Number(i.quantity)));
             let disc = sub * 0.15;
             let tot = sub + 30 + 20 - disc;
-            if(sub === 0) tot = 0;
+            if(sub === 0) { disc = 0; tot = 0; }
 
             document.getElementById("invoice-subtotal").textContent = "$" + sub.toFixed(2);
             document.getElementById("invoice-discount").textContent = "-$" + disc.toFixed(2);

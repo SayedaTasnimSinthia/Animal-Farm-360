@@ -64,6 +64,7 @@ include('db.php');
             <div class="footer-brand">
                 <div class="logo-circle big"></div>
                 <span class="logo-text">Animal Farm 360</span>
+
             </div>
             <div class="footer-links">
                 <h4>About</h4>
@@ -72,6 +73,7 @@ include('db.php');
                 <a href="cookie-policy.html">Cookie Policy</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-conditions.html">Terms & Condition</a>
+
             </div>
             <div class="footer-newsletter">
                 <h4>Newsletter</h4>
@@ -82,10 +84,13 @@ include('db.php');
                 </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
             <p>© 2026 Animal Farm 360 | All Rights Reserved</p>
         </div>
     </footer>
+
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -104,6 +109,7 @@ include('db.php');
             localStorage.setItem('farmCart', JSON.stringify(cart));
             alert(item.name + ' added to your shopping cart! 🛍️');
         }
+
 
         document.getElementById("product-search-input").addEventListener("input", function() {
             let query = this.value.toLowerCase();
