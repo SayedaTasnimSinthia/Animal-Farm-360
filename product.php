@@ -91,6 +91,8 @@ include('db.php');
     </footer>
 
 
+/* ... */
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
