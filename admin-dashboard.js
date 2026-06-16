@@ -1,5 +1,5 @@
 function routeToPortal(targetPageUrl) {
-    // This will now forward all clicks straight to whatever URL you passed in
+
     console.log(`Forwarding administrative terminal to: ${targetPageUrl}`);
     window.location.href = targetPageUrl;
 }

@@ -1,5 +1,5 @@
 <?php
-// Initialize server session tracking at the absolute top of the file frame
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

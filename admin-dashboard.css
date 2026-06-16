@@ -10,7 +10,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
     
-    /* Dynamic stretch framework anchors the footer layout directly to bottom */
+  
     display: flex;
     flex-direction: column;
     min-height: 100vh;

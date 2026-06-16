@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include('db.php');
 
-// Security Guard Check: Block unauthenticated traffic logs
 if (!isset($_SESSION['customer_logged_in']) || $_SESSION['customer_logged_in'] !== true) {
     echo "<script>alert('Please login first via customer-login.html!'); window.location.href = 'customer-login.html';</script>";
     exit();

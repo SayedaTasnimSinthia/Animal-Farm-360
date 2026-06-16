@@ -182,7 +182,6 @@ function closeActionForm() {
 }
 
 
-/* GLOBAL FOOTER NEWSLETTER DELEGATION HANDLING */
 document.body.addEventListener("click", (event) => {
     if (event.target && event.target.classList.contains("go-btn")) {
         event.preventDefault();

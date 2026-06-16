@@ -91,7 +91,7 @@ include('db.php');
     </footer>
 
 
-/* ... */
+
 
 
     <script>

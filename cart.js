@@ -124,15 +124,15 @@ function proceedToCheckout() {
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Check login status immediately
+
     const loginStatus = localStorage.getItem("isLoggedIn");
     if (loginStatus !== "true") {
         alert("Access Denied! Please log in to view your shopping cart.");
-        window.location.replace("customer-login.html"); // Using replace prevents backward looping
+        window.location.replace("customer-login.html"); 
         return; // Stops any further execution
     }
 
-    // 2. Only if logged in, populate the true username
+
     const savedName = localStorage.getItem("currentUserName");
     if (savedName) {
         document.getElementById("dynamic-username").textContent = savedName;
